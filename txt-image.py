@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import torch
 from diffusers import DiffusionPipeline
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all origins
 
 if torch.cuda.is_available():
     device = "cuda"
